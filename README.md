@@ -25,8 +25,12 @@ example:
 stratagems.exe jump_pack
 ```
 
+For loupedeck users:
+Create a new "Run" action and browse to the strategems.exe file.
+in the path input add || followed by the action key  (actions can be viewed inside the codes.json file)
+
 loupedeck usage example:
 
 ```
-stratagems.exe || jump_pack
+C:\helldivers\stratagems.exe || jump_pack
 ```
