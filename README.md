@@ -25,6 +25,7 @@ The compiled binary will appear in the dist folder.
 ## Usage:
 
 To use this just call the binary while providing the stratagem key as a parameter.
+You can view (or add) stratagem keys and entries in the codes.json file included.
 
 example:
 
