@@ -9,7 +9,7 @@ If you don't feel comfortable with the warning, you can go through the code and/
 1. This is using the arrows to execute the commands, so make sure your keybindings for the strategems are correct.
 2. Set the ctrl mode to hold, not toggle
 
-** If for some reason only the Ctrl button gets registered, try mapping your stradagem code bindings to your numpad arrows  **
+**If for some reason only the Ctrl button gets registered, try mapping your stradagem code bindings to your numpad arrows**
 
 
 ## Description
