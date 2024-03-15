@@ -14,3 +14,19 @@ The compiled binary will appear in the dist folder.
 
 NOTE:
 The codes.json file needs to be in the same directory as your stratagems.exe file
+
+usage:
+
+To use this just call the binary while providing the stratagem key as a parameter.
+
+example:
+
+```
+stratagems.exe jump_pack
+```
+
+loupedeck usage example:
+
+```
+stratagems.exe || jump_pack
+```
