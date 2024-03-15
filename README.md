@@ -6,3 +6,7 @@ Compilation command:
 ```
 pyinstaller --onefile --noconsole --icon=favicon.ico stratagems.py
 ```
+The compiled binary will appear in the dist folder.
+
+NOTE:
+The codes.json file needs to be in the same directory as your stratagems.exe file
