@@ -1,3 +1,9 @@
+## Important Note
+
+Due to this executing keyboard input events, windows might falsly detect this as a wacatac trojan.
+Add the executable to the exceptions to remedy this.
+If you don't feel comfortable with the warning, you can go through the code and/or compile it yourself.
+
 ## Description
 
 A simple script for loading a key sequence by key from a JSON file, based on given parameter.
