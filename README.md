@@ -4,7 +4,7 @@ For some reason windows might falsly detect this as a wacatac trojan.<br>
 Add the executable to the exceptions to remedy this.<br>
 If you don't feel comfortable with the warning, you can go through the code and/or compile it yourself.
 
-Also: This is using the arrows to execute the commands, so make sure your keybindings for the strategems are correct.
+**Also: This is using the arrows to execute the commands, so make sure your keybindings for the strategems are correct.**
 
 ## Description
 
