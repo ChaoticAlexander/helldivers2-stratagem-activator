@@ -4,6 +4,8 @@ For some reason windows might falsly detect this as a wacatac trojan.<br>
 Add the executable to the exceptions to remedy this.<br>
 If you don't feel comfortable with the warning, you can go through the code and/or compile it yourself.
 
+Also: This is using the arrows to execute the commands, so make sure your keybindings for the strategems are correct.
+
 ## Description
 
 A simple script for loading a key sequence by key from a JSON file, based on given parameter.
