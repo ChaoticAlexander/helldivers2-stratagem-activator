@@ -1,21 +1,21 @@
+import os
 import sys
 import time
 import json
-from lib import press_key, key_down, key_up
+from lib.config import config, write_default_config, read_config
+from lib.input import press_key, key_down, key_up
 
-# Constants for Directx scan codes
-DIK_LCONTROL = 0x1D
-DIK_UP = 0xC8
-DIK_LEFT = 0xCB
-DIK_RIGHT = 0xCD
-DIK_DOWN = 0xD0
+if os.path.exists("config.ini"):
+    read_config()
+else:
+    write_default_config()
 
-# Dictionary mapping keys to Directx scan codes
 dic = {
-    'u': DIK_UP,
-    'l': DIK_LEFT,
-    'r': DIK_RIGHT,
-    'd': DIK_DOWN
+    'u': int(config['settings']['up']),
+    'l': int(config['settings']['left']),
+    'r': int(config['settings']['right']),
+    'd': int(config['settings']['down']),
+    'o': int(config['settings']['open'])
 }
 
 def load_key_sequences(file_path):
@@ -46,12 +46,19 @@ def activate_stratagem(key):
     data = load_key_sequences('codes.json')
     input_list = get_input_sequence(key, data)
 
-    # Press Ctrl key
-    key_down(DIK_LCONTROL)
-    time.sleep(0.02)
+    # Open stratagem menu
+    if (config['settings']['open_mode'] == 'hold'):
+        key_down(dic['o'])
+        time.sleep(0.02)
+    else:
+        press_key(dic['o'])
+        time.sleep(0.02)
 
     # Send Key Sequence
     simulate_key_presses(input_list)
 
-    # Release Ctrl key
-    key_up(DIK_LCONTROL)
+    # Close stratagem menu
+    if (config['settings']['open_mode'] == 'hold'):
+        key_up(dic['o'])
+    else:
+        press_key(dic['o'])
