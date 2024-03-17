@@ -1,3 +1,9 @@
+## Description
+
+A simple script for loading a key sequence by key from a JSON file, based on given parameter.
+
+You can either use the binaries provided in the release section, or compile it yourself using pyinstaller.
+
 ## Important Note
 
 For some reason windows might falsly detect this as a wacatac trojan.<br>
@@ -6,31 +12,14 @@ If you don't feel comfortable with the warning, you can go through the code and/
 
 ## Game Configuration
 
-1. This is using the arrows to execute the commands, so make sure your keybindings for the strategems are correct.
-2. Set the ctrl mode to hold, not toggle
+- This is using the arrows to execute the commands, so make sure your keybindings for the strategems are correct.
+- Set the ctrl mode to hold, not toggle
 
 **If for some reason only the Ctrl button gets registered, try mapping your stratagem code bindings to your numpad arrows**
 
-
-## Description
-
-A simple script for loading a key sequence by key from a JSON file, based on given parameter.
-
-You can either use the binaries provided in the release section, or compile it yourself using pyinstaller.
-
-(If you choose to compile it yourself, you might get a warning from windows defender saying that this is malicious.
-This is because of the "--noconsole" flag.
-Disable your anti-virus while compiling and reactivate after you're done to work around this issue.)
-
-Compilation command:
-```
-pyinstaller --onefile --noconsole --icon=favicon.ico stratagems.py
-```
-The compiled binary will appear in the dist folder.
-
-**NOTE: The codes.json file needs to be in the same directory as your stratagems.exe file**
-
 ## Usage:
+
+Extract the two files provided (stratagems.exe, codes.json) in a folder of your choosing.
 
 To use this just call the binary while providing the stratagem key as a parameter.<br>
 > You can view (or add) stratagem keys and entries in the codes.json file included.
@@ -42,7 +31,8 @@ stratagems.exe jump_pack
 ```
 
 For loupedeck users:
-Create a new "Run" action and browse to the strategems.exe file.
+
+Create a new "Run" action and browse to the strategems.exe file.<br>
 in the path input add || followed by the action key  (actions can be viewed inside the codes.json file)
 
 **loupedeck usage example:**
@@ -50,3 +40,24 @@ in the path input add || followed by the action key  (actions can be viewed insi
 ```
 C:\helldivers\stratagems.exe || jump_pack
 ```
+
+## Compilation
+
+If you choose to compile it yourself, you might get a warning from windows defender saying that this is malicious.<br>
+This is because of the "--noconsole" flag.<br>
+Disable your anti-virus while compiling and reactivate after you're done to work around this issue.
+
+For compiling this, you only need to install pyinstaller.
+You can do this by running
+
+```
+pip install pyinstaller
+```
+
+Then run this to actually compile
+```
+pyinstaller --onefile --noconsole --icon=favicon.ico stratagems.py
+```
+The compiled binary will appear in the dist folder.
+
+**NOTE: The codes.json file needs to be in the same directory as your stratagems.exe file**
