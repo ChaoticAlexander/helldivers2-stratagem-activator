@@ -37,7 +37,8 @@ Or
   ![loupedeck_create_action_from_sidebar](./readme_media/loupedeck_create_action_from_sidebar.png)
 
 
-Select the stratagems.exe file and add key corresponding to the stratagem you want to trigger, as a parameter.
+Select the stratagems.exe file and add key corresponding to the stratagem you want to trigger, as a parameter.<br>
+**keys for the stratagems can be referenced in the codes.json file**
 
 ![run_action_dialog](./readme_media/run_action_dialog.png)
 
