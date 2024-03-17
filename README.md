@@ -1,63 +1,54 @@
-## Description
-
-A simple script for loading a key sequence by key from a JSON file, based on given parameter.
-
-You can either use the binaries provided in the release section, or compile it yourself using pyinstaller.
-
 ## Important Note
 
-For some reason windows might falsly detect this as a wacatac trojan.<br>
-Add the executable to the exceptions to remedy this.<br>
-If you don't feel comfortable with the warning, you can go through the code and/or compile it yourself.
+For some reason, windows defender might falsy detect this as a Wacatac Trojan.
+Add the directory containing the files you downloaded, to remedy this issue, as defender might delete the files.
 
-## Game Configuration
+If you don't feel comfortable with the provided binaries, you can take a look at the code and compile it yourself. (instructions on how to compile below)
 
-- This is using the arrows to execute the commands, so make sure your keybindings for the strategems are correct.
-- Set the ctrl mode to hold, not toggle
+## Description
 
-**If for some reason only the Ctrl button gets registered, try mapping your stratagem code bindings to your numpad arrows**
+This is a simple macro execution script used to quickly execute strategem actions in Helldivers 2.
+This was mainly created with the loupedeck in mind, but it can also be used by other macro software and hardware, in the same fashion.
 
-## Usage:
+## Setup
 
-Extract the two files provided (stratagems.exe, codes.json) in a folder of your choosing.
+Download the necessary files from the releases section and extract them ina directory of your choice.<br>
+A recommended option is C:\helldivers because it will make it easier for setting up loupedeck actions.
 
-To use this just call the binary while providing the stratagem key as a parameter.<br>
-> You can view (or add) stratagem keys and entries in the codes.json file included.
+## Configuration
 
-example:
+You can modify the sequence keys to any key that you desire.
+> Meaning you can for example bind the [Up, Down, Left, Right, stratagem_open] keys to any other key, like WASD and Alt, depending on what you use in-game.
 
-```
-stratagems.exe jump_pack
-```
+To modify the key bindings, simply run the  configuration.exe file and follow the prompts.
 
-For loupedeck users:
+## LoupeDeck setup
 
-Create a new "Run" action and browse to the strategems.exe file.<br>
-in the path input add || followed by the action key  (actions can be viewed inside the codes.json file)
+In loupedeck, create a new "Run command" action.
 
-**loupedeck usage example:**
+- Directly on the tile
 
-```
-C:\helldivers\stratagems.exe || jump_pack
-```
+  ![loupedeck_create_action_from_tile](./readme_media/loupedeck_create_action_from_tile.png)
 
-## Compilation
+Or
 
-If you choose to compile it yourself, you might get a warning from windows defender saying that this is malicious.<br>
-This is because of the "--noconsole" flag.<br>
-Disable your anti-virus while compiling and reactivate after you're done to work around this issue.
+- From the sidebar
 
-For compiling this, you only need to install pyinstaller.
-You can do this by running
+  ![loupedeck_create_action_from_sidebar](./readme_media/loupedeck_create_action_from_sidebar.png)
 
-```
-pip install pyinstaller
-```
 
-Then run this to actually compile
-```
-pyinstaller --onefile --noconsole --icon=favicon.ico stratagems.py
-```
-The compiled binary will appear in the dist folder.
+Select the stratagems.exe file and add key corresponding to the stratagem you want to trigger, as a parameter.
 
-**NOTE: The codes.json file needs to be in the same directory as your stratagems.exe file**
+![run_action_dialog](./readme_media/run_action_dialog.png)
+
+**! For non-loupedeck users !**<br>
+When using this script with something other than the loupedeck, make sure to omit the double pipe **||** when adding the parameter.
+
+## Compiling (optional)
+
+If you want to compile the executables yourself, you need to have python 3.12 installed, along with the project's dependencied.
+You can install the dependencies by executing ``` pip install -r requirements.txt ```
+
+After you installed the dependencies, run the compile.py script with ``` python ./compile.py ``` to compile the binaries.
+
+**Now go spread some democracy, soldier!**
