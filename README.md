@@ -45,6 +45,12 @@ Select the stratagems.exe file and add key corresponding to the stratagem you wa
 **! For non-loupedeck users !**<br>
 When using this script with something other than the loupedeck, make sure to omit the double pipe **||** when adding the parameter.
 
+## Icons
+
+To get all icons for the stratagem actions, you can either:
+- Download the [Streamdeck Helldivers 2 Stratagem plugin](https://marketplace.elgato.com/product/helldivers-2-stratagem-0c648333-25a0-403f-9894-22c5f6b1ff89), which provides all icons in the zip,
+- Get the SVGs from [@nvigneux 's  Helldivers-2-Stratagems-icons-svg repository ](https://github.com/nvigneux/Helldivers-2-Stratagems-icons-svg?tab=readme-ov-file)
+
 ## Compiling (optional)
 
 If you want to compile the executables yourself, you need to have python 3.12 installed, along with the project's dependencied.
