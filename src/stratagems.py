@@ -57,6 +57,7 @@ class Stratagems:
       (Key.down if self.menu_open else Key.up)(self.bindings['O'])
     else:
       Key.press(self.bindings['O'])
+    self.menu_open = not self.menu_open
       
   def activate(self):
     log(f'Executing stratagem sequence: {self.active_code_sequence}')
