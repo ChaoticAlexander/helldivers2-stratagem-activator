@@ -52,7 +52,7 @@ while open_mode not in ["h", "t"]:
   open_mode = event.name.lower()
   print()
 
-open_mode = 'HOLD' if open_mode == 'h' else 'TOGGLE'
+open_mode = 'hold' if open_mode == 'h' else 'toggle'
 
 print(f"Stratagem open will be used in {open_mode} mode.")
 
