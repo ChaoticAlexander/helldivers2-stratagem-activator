@@ -1,6 +1,6 @@
 import sys
-from src.modules import Config, showerror
-from src.utils.logger import log
+from src.modules import Config
+from src.utils import log, showerror
 from src.stratagems import Stratagems
 
 
@@ -12,7 +12,7 @@ def main():
   key = sys.argv[1]
 
   config = Config()
-  stratagems = Stratagems(config, key, 'codes.json')
+  stratagems = Stratagems(config, key, './dist/codes.json')
 
   log(f"Activating stratagem with key: {key}")
   

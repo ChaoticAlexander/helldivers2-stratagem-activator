@@ -2,8 +2,8 @@ import sys
 import time
 import json
 from typing import Dict, List
-from src.utils.logger import log
-from .modules import Key, Config, showerror
+from src.utils import log, showerror
+from .modules import Key, Config
 from .types.stratagems import ActionMap, AvailableActions
 
 class Stratagems:
