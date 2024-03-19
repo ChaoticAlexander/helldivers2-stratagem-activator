@@ -13,4 +13,3 @@ def log(msg):
 
   if getenv('DEBUG_MODE') == 'true':
     print(msg)
-    
