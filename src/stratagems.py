@@ -14,13 +14,13 @@ class Stratagems:
   def __init__(
     self,
     config: Config,
-    action_key: str,
-    actions_file_path: str
+    stratagem_key: str,
+    codes_file_path: str
   ):
     self.config = config
     self.map_bindings()
-    self.load_key_sequences(actions_file_path)
-    self.load_active_key_sequence(action_key)
+    self.load_key_sequences(codes_file_path)
+    self.load_active_key_sequence(stratagem_key)
   
   def map_bindings(self):
     self.bindings = {
