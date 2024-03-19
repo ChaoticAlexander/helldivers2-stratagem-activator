@@ -1,5 +1,6 @@
+import sys
 from os.path import isfile
-from tkinter import messagebox
+from .messagebox import showerror
 from .logger import log
 from configparser import ConfigParser
 from src.types.config import SettingsDict
@@ -44,7 +45,8 @@ class Config:
         self.parser['settings'] = self.default_settings
         self.parser.write(config_file)
     except IOError:
-      messagebox.showerror('Error', f'Error while creating config file: {self.config_file_path}')
+      showerror('Error', f'Error while creating config file: {self.config_file_path}')
+      sys.exit(1)
 
   def read_config(self):
     """Reads settings from config file."""

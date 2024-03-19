@@ -5,13 +5,13 @@ verify_ssl = true
 
 [packages]
 keyboard = ">=0.13.5"
+python-dotenv = "*"
 
 [dev-packages]
 pylint = "*"
 pyinstaller = ">=6.5.0"
-mypy = ">=1.9.0"
+mypy = "*"
 autopep8 = "*"
-python-dotenv = "*"
 
 [requires]
-python_version = "3.12"
+python_version = "3.12.1"

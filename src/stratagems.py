@@ -1,9 +1,8 @@
 import sys
 import time
 import json
-from tkinter import messagebox
 from typing import Dict, List
-from .modules import Key, Config, log
+from .modules import Key, Config, log, showerror
 from .types.stratagems import ActionMap, AvailableActions
 
 class Stratagems:
@@ -16,7 +15,7 @@ class Stratagems:
     self,
     config: Config,
     action_key: str,
-    actions_file_path: str = 'codes.json'
+    actions_file_path: str
   ):
     self.config = config
     self.map_bindings()
@@ -31,20 +30,21 @@ class Stratagems:
     
   def load_key_sequences(self, file_path):
     try:
+      log('Loading stratagem key sequences..')
       with open(file_path) as f:
         self.codes = json.load(f)
     except FileNotFoundError:
-      messagebox.showerror('Error', f'File not found: {file_path}')
+      showerror('Error', f'File not found: {file_path}')
       sys.exit(1)
     except json.JSONDecodeError:
-      messagebox.showerror('Error', f'Error decoding JSON file: {file_path}')
+      showerror('Error', f'Error decoding JSON file: {file_path}')
       sys.exit(1)
 
   def load_active_key_sequence(self, key):
     if key in self.codes:
       self.active_code_sequence = self.codes[key].split(' ')
     else:
-      messagebox.showerror('Stratagem execution error', f'Key "{key}" not found in codes.json')
+      showerror('Stratagem execution error', f'Key "{key}" not found in codes.json')
       sys.exit(1)
 
   def simulate_key_presses(self):
