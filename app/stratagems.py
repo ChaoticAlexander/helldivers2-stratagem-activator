@@ -1,8 +1,8 @@
 import time
 
 from app.config import Config
-from app.data_types import Direction
-from app.input import Key
+from app.types.types import Direction
+from app.utils.input import Key
 
 
 class Stratagems:

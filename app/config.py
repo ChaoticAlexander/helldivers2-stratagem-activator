@@ -6,8 +6,8 @@ from tkinter import LEFT, RIGHT
 from dotenv import load_dotenv
 
 from app.constants import ACTIVATION_KEY, DELAY, DOWN, MODE, UP
-from app.data_types import ActivationMode
-from app.key_map import KeyMap
+from app.types.types import ActivationMode
+from app.utils.key_map import KeyMap
 
 
 class Config:

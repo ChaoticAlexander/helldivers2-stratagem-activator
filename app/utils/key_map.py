@@ -1,4 +1,4 @@
-from app.data_types import Direction
+from app.types.types import Direction
 
 
 class KeyMap:
