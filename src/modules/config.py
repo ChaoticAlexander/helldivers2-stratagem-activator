@@ -1,7 +1,7 @@
 import sys
 from os.path import isfile
 from .messagebox import showerror
-from .logger import log
+from src.utils.logger import log
 from configparser import ConfigParser
 from src.types.config import SettingsDict
 

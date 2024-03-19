@@ -1,5 +1,6 @@
 import sys
-from src.modules import Config, log, showerror
+from src.modules import Config, showerror
+from src.utils.logger import log
 from src.stratagems import Stratagems
 
 

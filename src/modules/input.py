@@ -1,6 +1,6 @@
 import ctypes
 import time
-from .logger import log
+from src.utils.logger import log
 
 SendInput = ctypes.windll.user32.SendInput
 
