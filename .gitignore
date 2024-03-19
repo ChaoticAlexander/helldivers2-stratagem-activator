@@ -1,2 +1,5 @@
 build
 dist
+*.spec
+.vscode
+__pycache__
