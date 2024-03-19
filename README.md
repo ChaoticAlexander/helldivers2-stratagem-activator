@@ -53,9 +53,13 @@ To get all icons for the stratagem actions, you can either:
 
 ## Compiling (optional)
 
-If you want to compile the executables yourself, you need to have python 3.12 installed, along with the project's dependencied.
-You can install the dependencies by executing ``` pip install -r requirements.txt ```
+If you want to compile the executables yourself, you need:
 
-After you installed the dependencies, run the compile.py script with ``` python ./compile.py ``` to compile the binaries.
+- python 3.12.1
+- pipenv
+
+Install the project's dependencies with ```pipenv install --dev```
+
+compile using ```pipenv run python compile.py```
 
 **Now go spread some democracy, soldier!**
