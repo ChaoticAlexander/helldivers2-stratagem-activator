@@ -12,7 +12,7 @@ def main():
   key = sys.argv[1]
 
   config = Config()
-  stratagems = Stratagems(config, key, './dist/codes.json')
+  stratagems = Stratagems(config, key, 'codes.json')
 
   log(f"Activating stratagem with key: {key}")
   
