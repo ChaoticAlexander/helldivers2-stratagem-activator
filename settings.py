@@ -4,19 +4,19 @@ from configparser import ConfigParser
 config = ConfigParser()
 
 key_bindings = {
-    "LEFT": None,
-    "RIGHT": None,
-    "UP": None,
-    "DOWN": None,
-    "OPEN": None
+  "LEFT": None,
+  "RIGHT": None,
+  "UP": None,
+  "DOWN": None,
+  "OPEN": None
 }
 
 key_description = {
-    "LEFT": "Left",
-    "RIGHT": "Right",
-    "UP": "Up",
-    "DOWN": "Down",
-    "OPEN": "Stratagem open"
+  "LEFT": "Left",
+  "RIGHT": "Right",
+  "UP": "Up",
+  "DOWN": "Down",
+  "OPEN": "Stratagem open"
 }
 
 
