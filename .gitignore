@@ -1,2 +1,7 @@
 build
 dist
+*.spec
+.vscode
+__pycache__
+.env
+config.ini

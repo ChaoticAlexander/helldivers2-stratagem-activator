@@ -19,16 +19,20 @@ key_description = {
   "OPEN": "Stratagem open"
 }
 
+
 def assign_key(key, event):
   print(f"Assigning {event.name}({event.scan_code}) to {key}")
   key_bindings[key] = event.scan_code
 
+
 for key, description in key_description.items():
   print(f"Press the key you want to use for {description}")
-  event = keyboard.read_event(suppress=True)  # Suppress other events while waiting for a key press
+  # Suppress other events while waiting for a key press
+  event = keyboard.read_event(suppress=True)
 
   while event.event_type != keyboard.KEY_DOWN:
-    event = keyboard.read_event(suppress=True)  # Keep waiting until a key is pressed
+    # Keep waiting until a key is pressed
+    event = keyboard.read_event(suppress=True)
 
   assign_key(key, event)
   print()
@@ -39,7 +43,8 @@ while open_mode not in ["h", "t"]:
     print("Invalid choice. Please enter h for HOLD or t for TOGGLE.")
 
   print("Do you want to use HOLD or TOGGLE mode for the stratagem open key? (h/t)")
-  event = keyboard.read_event(suppress=True)  # Suppress other events while waiting for a key press
+  # Suppress other events while waiting for a key press
+  event = keyboard.read_event(suppress=True)
 
   while event.event_type != keyboard.KEY_DOWN:
     event = keyboard.read_event(suppress=True)
@@ -47,13 +52,13 @@ while open_mode not in ["h", "t"]:
   open_mode = event.name.lower()
   print()
 
-open_mode = 'HOLD' if open_mode == 'h' else 'TOGGLE'
+open_mode = 'hold' if open_mode == 'h' else 'toggle'
 
 print(f"Stratagem open will be used in {open_mode} mode.")
 
 config['settings'] = {
-  **key_bindings,
-  "OPEN_MODE": open_mode.lower()
+    **key_bindings,
+    "OPEN_MODE": open_mode.lower()
 }
 
 with open('config.ini', 'w') as configfile:
