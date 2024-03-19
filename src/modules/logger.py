@@ -7,7 +7,7 @@ env_loaded = False
 def log(msg):
   global env_loaded
 
-  if(isfile('.env') and not env_loaded):
+  if isfile('.env') and not env_loaded:
     load_dotenv()
     env_loaded = True
 
