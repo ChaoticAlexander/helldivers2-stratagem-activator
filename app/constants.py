@@ -1,0 +1,8 @@
+# Environment varibles names
+ACTIVATION_KEY = "ACTIVATION_KEY"
+DELAY = "DELAY"
+MODE = "MODE"
+UP = "UP"
+DOWN = "DOWN"
+LEFT = "LEFT"
+RIGHT = "RIGHT"
