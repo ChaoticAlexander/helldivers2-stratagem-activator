@@ -27,9 +27,6 @@
   "seismic_probe": "U U L R D D",
   "upload_data": "D D U U U",
   "illumination_flare": "R R R L L L",
-  "artillery": "R U U D",
-  "prospecting_drill": "D D L R D D",
-  "flag": "D U D U",
 
   "hmg_emplacement": "D U L R R L",
   "shield_generator": "D D L R L R",

@@ -1,17 +1,18 @@
 [[source]]
-name = "pypi"
 url = "https://pypi.org/simple"
 verify_ssl = true
+name = "pypi"
 
 [packages]
-keyboard = ">=0.13.5"
+black = "*"
+flake8 = "*"
+pylint = "*"
+isort = "*"
+pre-commit = "*"
 python-dotenv = "*"
+pyinstaller = "*"
 
 [dev-packages]
-pylint = "*"
-pyinstaller = ">=6.5.0"
-mypy = "*"
-autopep8 = "*"
 
 [requires]
-python_version = "3.12.1"
+python_version = "3.12"
