@@ -1,22 +1,22 @@
-from typing import TypedDict, Literal
+from typing import Literal, TypedDict
 
-AvailableOpenModes = Literal['hold', 'toggle']
+AvailableOpenModes = Literal["hold", "toggle"]
 
 
 class Keybindings(TypedDict):
-  up: str
-  down: str
-  left: str
-  right: str
-  open: str
+    up: str
+    down: str
+    left: str
+    right: str
+    open: str
 
 
 class Settings(TypedDict):
-  open_mode: AvailableOpenModes
-  delay_min: str
-  delay_max: str
+    open_mode: AvailableOpenModes
+    delay_min: str
+    delay_max: str
 
 
 class AppConfig(TypedDict):
-  keybindings: Keybindings
-  settings: Settings
+    keybindings: Keybindings
+    settings: Settings
