@@ -5,9 +5,9 @@ from tkinter import LEFT, RIGHT
 
 from dotenv import load_dotenv
 
-from app.constants import ACTIVATION_KEY, DELAY, DOWN, MODE, UP
-from app.data_types import ActivationMode
-from app.key_map import KeyMap
+from app.constants import ACTIVATION_KEY, DEBUG, DELAY, DOWN, MODE, UP
+from app.types.types import ActivationMode
+from app.utils.key_map import KeyMap
 
 
 class Config:
@@ -16,6 +16,7 @@ class Config:
     mode: ActivationMode
     key_map: KeyMap
     key_codes: dict[str, str]
+    debug: bool
 
     def __init__(self):
         self.current_directory = os.path.join(
@@ -27,6 +28,7 @@ class Config:
         self.set_mode(os.environ[MODE])
         self.initialize_key_map()
         self.load_key_sequences()
+        self.debug = True if os.environ[DEBUG] == "True" else False
 
     def set_activation_key(self, key: str):
         try:
