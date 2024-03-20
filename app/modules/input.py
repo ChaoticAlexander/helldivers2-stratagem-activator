@@ -61,16 +61,16 @@ class Key:
   @staticmethod
   def simulate(key_code, key_down=True):
     """Simulate pressing or releasing a key."""
-    log(f'Simulating key {'DOWN' if key_down else 'UP'} with code: {key_code}')
     key_code, _, ext = key_code.partition('.')
     extra = ctypes.c_ulong(0)
     ii_ = Input_I()
     flags = KEYEVENTF_KEYDOWN if key_down else KEYEVENTF_KEYUP
     if ext:
-      log('Key is extended, applying flag..')
       flags |= KEYEVENTF_EXTENDEDKEY
     ii_.ki = KeyBdInput(0, int(key_code), flags, 0, ctypes.pointer(extra))
     x = Input(ctypes.c_ulong(1), ii_)
+    if key_down:
+      log(f'Simulating key with code: {key_code}, extended: {bool(ext)}')
     SendInput(1, ctypes.pointer(x), ctypes.sizeof(x))
 
   @staticmethod
