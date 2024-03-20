@@ -1,12 +1,12 @@
 import ctypes
 import time
-from src.utils.logger import log
+from app.utils.logger import log
 
 SendInput = ctypes.windll.user32.SendInput
 
 # Constants
 KEYEVENTF_KEYDOWN = 0x0008
-KEYEVENTF_KEYUP = 0x0002
+KEYEVENTF_KEYUP = KEYEVENTF_KEYDOWN | 0x0002
 
 # C struct redefinitions
 PUL = ctypes.POINTER(ctypes.c_ulong)
@@ -57,7 +57,7 @@ class Key:
     log(f'Simulating key press with code: {hex_key_code}')
     extra = ctypes.c_ulong(0)
     ii_ = Input_I()
-    flags = KEYEVENTF_KEYDOWN if key_down else KEYEVENTF_KEYDOWN | KEYEVENTF_KEYUP
+    flags = KEYEVENTF_KEYDOWN if key_down else KEYEVENTF_KEYUP
     ii_.ki = KeyBdInput(0, hex_key_code, flags, 0, ctypes.pointer(extra))
     x = Input(ctypes.c_ulong(1), ii_)
     SendInput(1, ctypes.pointer(x), ctypes.sizeof(x))

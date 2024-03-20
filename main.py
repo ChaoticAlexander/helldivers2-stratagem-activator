@@ -1,7 +1,7 @@
 import sys
-from src.modules import Config
-from src.utils import log, showerror
-from src.stratagems import Stratagems
+from app.modules import Config
+from app.utils import log, showerror
+from app.stratagems import Stratagems
 
 
 def main():

@@ -10,8 +10,6 @@ python-dotenv = "*"
 [dev-packages]
 pylint = "*"
 pyinstaller = ">=6.5.0"
-mypy = "*"
-autopep8 = "*"
 
 [requires]
 python_version = "3.12.1"

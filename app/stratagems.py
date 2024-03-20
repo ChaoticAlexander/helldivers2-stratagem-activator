@@ -2,9 +2,9 @@ import sys
 import time
 import json
 from typing import Dict, List
-from src.utils import log, showerror
-from .modules import Key, Config
-from .types.stratagems import ActionMap, AvailableActions
+from app.utils import log, showerror
+from app.modules import Key, Config
+from app.types.stratagems import ActionMap, AvailableActions
 
 class Stratagems:
   bindings: Dict[AvailableActions, int]
