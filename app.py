@@ -6,7 +6,7 @@ from app.stratagems import Stratagems
 
 def main():
   if len(sys.argv) < 2:
-    showerror("Stratagem key missing","Please provide the stratagem key you want to activate.")
+    showerror("Stratagem key missing", "Please provide the stratagem key you want to activate.")
     sys.exit(1)
 
   key = sys.argv[1]
@@ -15,7 +15,7 @@ def main():
   stratagems = Stratagems(config, key, './config/codes.json')
 
   log(f"Activating stratagem with key: {key}")
-  
+
   stratagems.activate()
 
 

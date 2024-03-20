@@ -8,8 +8,13 @@ keyboard = ">=0.13.5"
 python-dotenv = "*"
 
 [dev-packages]
-pylint = "*"
 pyinstaller = ">=6.5.0"
+mypy = "*"
+black = "*"
+flake8 = "*"
+pylint = "*"
+isort = "*"
+pre-commit = "*"
 
 [requires]
 python_version = "3.12"

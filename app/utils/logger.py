@@ -4,12 +4,11 @@ from dotenv import load_dotenv
 
 env_loaded = False
 
-def log(msg):
-  global env_loaded
 
+def log(msg):
   if isfile('.env') and not env_loaded:
     load_dotenv()
-    env_loaded = True
+    globals()['env_loaded'] = True
 
   if getenv('DEBUG_MODE') == 'true':
     print(msg)

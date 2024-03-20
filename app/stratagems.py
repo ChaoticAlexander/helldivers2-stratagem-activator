@@ -7,6 +7,7 @@ from app.modules import Key
 from app.types.config import AppConfig
 from app.types.stratagems import ActionMap, AvailableActions
 
+
 class Stratagems:
   bindings: Dict[AvailableActions, int]
   codes: Dict[str, str]
@@ -23,17 +24,17 @@ class Stratagems:
     self.map_bindings()
     self.load_key_sequences(codes_file_path)
     self.load_active_key_sequence(stratagem_key)
-  
+
   def map_bindings(self):
     self.bindings = {
       key: self.config[f'keybindings.{config_key}']
       for (key, config_key) in ActionMap.items()
     }
-    
+
   def load_key_sequences(self, file_path):
     try:
       log('Loading stratagem key sequences..')
-      with open(file_path) as f:
+      with open(file_path, encoding='utf-8') as f:
         self.codes = json.load(f)
     except FileNotFoundError:
       showerror('Error', f'File not found: {file_path}')
@@ -53,14 +54,14 @@ class Stratagems:
     for element in self.active_code_sequence:
       Key.press(self.bindings[element])
       time.sleep(0.02)
-    
+
   def toggle_menu(self):
-    if (self.config['settings.open_mode'] == 'hold'):
+    if self.config['settings.open_mode'] == 'hold':
       (Key.up if self.menu_open else Key.down)(self.bindings['O'])
     else:
       Key.press(self.bindings['O'])
     self.menu_open = not self.menu_open
-      
+
   def activate(self):
     log(f'Executing stratagem sequence: {self.active_code_sequence}')
     # Open stratagem menu

@@ -12,6 +12,7 @@ KEYEVENTF_EXTENDEDKEY = 0x0001
 # C struct redefinitions
 PUL = ctypes.POINTER(ctypes.c_ulong)
 
+
 class KeyBdInput(ctypes.Structure):
   _fields_ = [
     ("wVk", ctypes.c_ushort),
@@ -21,12 +22,14 @@ class KeyBdInput(ctypes.Structure):
     ("dwExtraInfo", PUL)
   ]
 
+
 class HardwareInput(ctypes.Structure):
   _fields_ = [
     ("uMsg", ctypes.c_ulong),
     ("wParamL", ctypes.c_short),
     ("wParamH", ctypes.c_ushort)
   ]
+
 
 class MouseInput(ctypes.Structure):
   _fields_ = [
@@ -38,6 +41,7 @@ class MouseInput(ctypes.Structure):
     ("dwExtraInfo", PUL)
   ]
 
+
 class Input_I(ctypes.Union):
   _fields_ = [
     ("ki", KeyBdInput),
@@ -45,11 +49,13 @@ class Input_I(ctypes.Union):
     ("hi", HardwareInput)
   ]
 
+
 class Input(ctypes.Structure):
   _fields_ = [
     ("type", ctypes.c_ulong),
     ("ii", Input_I)
   ]
+
 
 class Key:
   @staticmethod

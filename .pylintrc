@@ -1,0 +1,23 @@
+[MASTER]
+# init-hook="from pylint.config import find_pylintrc; import os, sys; sys.path.append(os.path.dirname(find_pylintrc()), 'app')"
+# Specify the file extensions to be analyzed
+extension-pkg-whitelist = .py
+indent-string = '  '
+# Specify rules to ignore
+ignore =
+    C0114,  # Missing module docstring (missing-module-docstring)
+    C0115,  # Missing class docstring (missing-class-docstring)
+    C0116,  # Missing function or method docstring (missing-function-docstring)
+    W0718   # Catching too general exception Exception (broad-exception-caught)
+# You can add more rules to ignore separated by comma
+
+[MESSAGES CONTROL]
+
+# Suppress some specific messages
+disable =
+    C0114,  # Missing module docstring (missing-module-docstring)
+    C0115,  # Missing class docstring (missing-class-docstring)
+    C0116,  # Missing function or method docstring (missing-function-docstring)
+    W0718,  # Catching too general exception Exception (broad-exception-caught)  # Missing function or method docstring (missing-function-docstring)
+    W0201   #attribute-defined-outside-init
+# You can add more messages to suppress separated by comma
