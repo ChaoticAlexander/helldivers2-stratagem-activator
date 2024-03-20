@@ -3,17 +3,17 @@ from app.types.config import AppConfig
 config_file_path = 'config.ini'
 
 default_settings: AppConfig = {
-  'bindings': {
-    'left': 75,
-    'right': 77,
-    'up': 72,
-    'down': 80,
-    'open': 29,
+  'keybindings': {
+    'left': '75.1',
+    'right': '77.1',
+    'up': '72.1',
+    'down': '80.1',
+    'open': '29',
   },
   'settings': {
     'open_mode': 'hold',
-    'delay_min': 20,
-    'delay_max': 50
+    'delay_min': '20',
+    'delay_max': '50'
   }
 }
 

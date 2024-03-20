@@ -7,6 +7,7 @@ SendInput = ctypes.windll.user32.SendInput
 # Constants
 KEYEVENTF_KEYDOWN = 0x0008
 KEYEVENTF_KEYUP = KEYEVENTF_KEYDOWN | 0x0002
+KEYEVENTF_EXTENDEDKEY = 0x0001
 
 # C struct redefinitions
 PUL = ctypes.POINTER(ctypes.c_ulong)
@@ -52,29 +53,33 @@ class Input(ctypes.Structure):
 
 class Key:
   @staticmethod
-  def simulate(hex_key_code, key_down=True):
+  def simulate(key_code, key_down=True):
     """Simulate pressing or releasing a key."""
-    log(f'Simulating key press with code: {hex_key_code}')
+    log(f'Simulating key {'DOWN' if key_down else 'UP'} with code: {key_code}')
+    key_code, _, ext = key_code.partition('.')
     extra = ctypes.c_ulong(0)
     ii_ = Input_I()
     flags = KEYEVENTF_KEYDOWN if key_down else KEYEVENTF_KEYUP
-    ii_.ki = KeyBdInput(0, hex_key_code, flags, 0, ctypes.pointer(extra))
+    if ext:
+      log('Key is extended, applying flag..')
+      flags |= KEYEVENTF_EXTENDEDKEY
+    ii_.ki = KeyBdInput(0, int(key_code), flags, 0, ctypes.pointer(extra))
     x = Input(ctypes.c_ulong(1), ii_)
     SendInput(1, ctypes.pointer(x), ctypes.sizeof(x))
 
   @staticmethod
-  def press(hex_key_code, delay=0.02):
+  def press(key_code, delay=0.02):
     """Simulate pressing a key with an optional delay before releasing."""
-    Key.simulate(hex_key_code, key_down=True)
+    Key.simulate(key_code, key_down=True)
     time.sleep(delay)
-    Key.simulate(hex_key_code, key_down=False)
+    Key.simulate(key_code, key_down=False)
 
   @staticmethod
-  def down(hex_key_code):
+  def down(key_code):
     """Simulate pressing a key."""
-    Key.simulate(hex_key_code, key_down=True)
+    Key.simulate(key_code, key_down=True)
 
   @staticmethod
-  def up(hex_key_code):
+  def up(key_code):
     """Simulate releasing a key."""
-    Key.simulate(hex_key_code, key_down=False)
+    Key.simulate(key_code, key_down=False)

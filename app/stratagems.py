@@ -3,7 +3,8 @@ import time
 import json
 from typing import Dict, List
 from app.utils import log, showerror
-from app.modules import Key, Config
+from app.modules import Key
+from app.types.config import AppConfig
 from app.types.stratagems import ActionMap, AvailableActions
 
 class Stratagems:
@@ -14,7 +15,7 @@ class Stratagems:
 
   def __init__(
     self,
-    config: Config,
+    config: AppConfig,
     stratagem_key: str,
     codes_file_path: str
   ):
@@ -25,7 +26,7 @@ class Stratagems:
   
   def map_bindings(self):
     self.bindings = {
-      key: self.config[config_key]
+      key: self.config[f'keybindings.{config_key}']
       for (key, config_key) in ActionMap.items()
     }
     
@@ -54,7 +55,7 @@ class Stratagems:
       time.sleep(0.02)
     
   def toggle_menu(self):
-    if (self.config['open_mode'] == 'hold'):
+    if (self.config['settings.open_mode'] == 'hold'):
       (Key.up if self.menu_open else Key.down)(self.bindings['O'])
     else:
       Key.press(self.bindings['O'])
