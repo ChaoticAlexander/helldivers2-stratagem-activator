@@ -2,8 +2,11 @@ from typing import Union, get_args
 
 import keyboard
 
-from app.constants.config import (default_settings, settings_description,
-                                  settings_prompts)
+from app.constants.config import (
+    default_settings,
+    settings_description,
+    settings_prompts,
+)
 from app.types.config import AvailableKeys, AvailableSettings, OpenModeMap
 
 from .config import Config
@@ -28,9 +31,9 @@ class Configurator:
         """Initializes settings assignment process."""
         for key in get_args(AvailableSettings):
             retry_message = (
-                settings_prompts["open_mode_retry"]
-                if key == "open_mode"
-                else settings_prompts["delay_retry"]
+                settings_prompts[f"{key}_retry"]
+                if f"{key}_retry" in settings_prompts
+                else None
             )
             args = [OpenModeMap.keys(), retry_message] if key == "open_mode" else []
             self.read_value_and_assign(key, *args)
@@ -77,7 +80,7 @@ class Configurator:
         while True:
             print(f"{settings_prompts[key]}")
             value = input(default_message)
-            if not value:
+            if not value or value and not acceptable_values:
                 break
             if acceptable_values and value in acceptable_values:
                 break

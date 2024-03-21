@@ -11,6 +11,7 @@ lint-all:
 build:
 	.venv\Scripts\activate && \
 	pyinstaller app.py --onefile --noconsole --icon=icons/helldivers.ico --name stratagems
+	pyinstaller settings.py --onefile --icon=icons/settings.ico --name settings
 	pwsh -Command "Copy-Item -Path './config/codes.json' -Destination './dist/'"
 
 clear_build:
