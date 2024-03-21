@@ -32,16 +32,32 @@ class Config:
             showerror("Error", f"Setting not found: {key}")
             sys.exit(1)
 
+    def __setitem__(self, key, value):
+        """Method to set values for specific keys in the configuration."""
+        keys = key.split(".")
+        try:
+            section = self.parser._sections
+            for k in keys[:-1]:
+                section = section.setdefault(k, {})
+            section[keys[-1]] = str(value)
+        except Exception as e:
+            showerror("Error", f"Failed to set value for key '{key}': {e}")
+            sys.exit(1)
+
     def write_default_config(self):
         """Write default settings to config file."""
         self.parser.read_dict(default_settings)
-        try:
-            with open(self.config_path, "w", encoding="utf-8") as config_file:
-                self.parser.write(config_file)
-        except IOError:
-            showerror("Error", f"Error while creating config file: {self.config_path}")
-            sys.exit(1)
+        self.write_config()
 
     def read_config(self):
         """Reads settings from config file."""
         self.parser.read(self.config_path)
+
+    def write_config(self):
+        """Writes settings to config file."""
+        try:
+            with open(self.config_path, "w", encoding="utf-8") as config_file:
+                self.parser.write(config_file)
+        except IOError:
+            showerror("Error", f"Error while writing config file: {self.config_path}")
+            sys.exit(1)

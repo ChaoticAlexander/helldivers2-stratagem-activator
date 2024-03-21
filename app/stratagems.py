@@ -1,10 +1,10 @@
 import json
 import sys
 import time
+import random
 from typing import Dict, List
 
-from app.modules import Key
-from app.types.config import AppConfig
+from app.modules import Key, Config
 from app.types.stratagems import ActionMap, AvailableActions
 from app.utils import log, showerror
 
@@ -14,16 +14,17 @@ class Stratagems:
     codes: Dict[str, str]
     active_code_sequence: List[str]
     menu_open: bool = False
+    config: Config
 
-    def __init__(self, config: AppConfig, stratagem_key: str, codes_file_path: str):
-        self.config = config
+    def __init__(self, stratagem_key: str, codes_file_path: str):
+        self.config = Config()
         self.map_bindings()
         self.load_key_sequences(codes_file_path)
         self.load_active_key_sequence(stratagem_key)
 
     def map_bindings(self):
         self.bindings = {
-            key: self.config[f"keybindings.{config_key}"]
+            key: self.config["keybindings"][config_key]
             for (key, config_key) in ActionMap.items()
         }
 
@@ -50,11 +51,16 @@ class Stratagems:
 
     def simulate_key_presses(self):
         for element in self.active_code_sequence:
+            delay = round(random.uniform(
+                int(self.config["settings"]["delay_min"]),
+                int(self.config["settings"]["delay_max"]),
+            ) * 0.001, 4)
             Key.press(self.bindings[element])
-            time.sleep(0.02)
+            log(f"sleeping for {delay}s")
+            time.sleep(delay)
 
     def toggle_menu(self):
-        if self.config["settings.open_mode"] == "hold":
+        if self.config["settings"]["open_mode"] == "hold":
             (Key.up if self.menu_open else Key.down)(self.bindings["O"])
         else:
             Key.press(self.bindings["O"])

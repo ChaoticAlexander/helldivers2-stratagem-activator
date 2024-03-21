@@ -1,6 +1,5 @@
 import sys
 
-from app.modules import Config
 from app.stratagems import Stratagems
 from app.utils import log, showerror
 
@@ -15,8 +14,7 @@ def main():
 
     key = sys.argv[1]
 
-    config = Config()
-    stratagems = Stratagems(config, key, "./config/codes.json")
+    stratagems = Stratagems(key, "./config/codes.json")
 
     log(f"Activating stratagem with key: {key}")
 
