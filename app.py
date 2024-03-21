@@ -14,7 +14,7 @@ def main():
 
     key = sys.argv[1]
 
-    stratagems = Stratagems(key, "./config/codes.json")
+    stratagems = Stratagems(key, "codes.json")
 
     log(f"Activating stratagem with key: {key}")
 

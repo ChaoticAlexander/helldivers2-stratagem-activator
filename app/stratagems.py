@@ -1,10 +1,10 @@
 import json
+import random
 import sys
 import time
-import random
 from typing import Dict, List
 
-from app.modules import Key, Config
+from app.modules import Config, Key
 from app.types.stratagems import ActionMap, AvailableActions
 from app.utils import log, showerror
 
@@ -51,10 +51,14 @@ class Stratagems:
 
     def simulate_key_presses(self):
         for element in self.active_code_sequence:
-            delay = round(random.uniform(
-                int(self.config["settings"]["delay_min"]),
-                int(self.config["settings"]["delay_max"]),
-            ) * 0.001, 4)
+            delay = round(
+                random.uniform(
+                    int(self.config["settings"]["delay_min"]),
+                    int(self.config["settings"]["delay_max"]),
+                )
+                * 0.001,
+                4,
+            )
             Key.press(self.bindings[element])
             log(f"sleeping for {delay}s")
             time.sleep(delay)

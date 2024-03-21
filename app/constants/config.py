@@ -29,5 +29,5 @@ settings_prompts = {
     "delay_min": "Enter the minimum delay (ms)",
     "delay_max": "Enter the maximum delay (ms)",
     "open_mode_retry": "Invalid input. Please enter 'h' for HOLD or 't' for TOGGLE",
-    "delay_retry": "The delay can't be empty"
+    "delay_retry": "The delay can't be empty",
 }
