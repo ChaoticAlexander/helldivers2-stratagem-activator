@@ -45,6 +45,23 @@ Select the stratagems.exe file and add key corresponding to the stratagem you wa
 **! For non-loupedeck users !**<br>
 When using this script with something other than the loupedeck, make sure to omit the double pipe **||** when adding the parameter.
 
+---
+## Strategems
+| Engineering Bay          | Patriotic Administration Center| General Stratagems    | Robotics Workshop             | Orbital Cannons           | Hanger                   | Suits    |
+|--------------------------|----------------------|-----------------------|-------------------------|---------------------------|--------------------------|--------------------------|
+| jump_pack                | machine_gun          | reinforce             | hmg_emplacement         | orbital_gatling_barrage   | eagle_strafing_run       | patriot_exosuit          |
+| supply_pack              | antimaterial_rifle   | sos_beacon            | shield_generator        | orbital_airburst_strike   | eagle_airstrike          |                          |
+| guard_dog_rover          | stalwart             | resupply              | tesla_tower             | orbital_120mm_barrage     | eagle_cluster_bomb       |                          |
+| ballistic_shield         | expendable_anti_tank | hellbomb              | antipersonnel_minefield | orbital_380mm_barrage     | eagle_napalm_airstrike   |                          |
+| shield_generator_pack    | recoilless_rifle     | sssd_delivery         | incendiary_mines        | orbital_walking_barrage   | eagle_smoke_strike       |                          |
+| guard_dog                | flame_thrower        | seismic_probe         | machine_gun_sentry      | orbital_laser             | eagle_110mm_rocket_pods  |                          |
+|                          | autocannon           | upload_data           | gatling_sentry          | orbital_railcannon_strike | eagle_500kg_bomb         |                          |
+|                          | railgun              | illumination_flare    | mortar_sentry           | orbital_precision_strike  | eagle_rearm              |                          |
+|                          | spear_launcher       |                       | autocannon_sentry       | orbital_gas_strike        |                          |                          |
+|                          | grenade_launcher     |                       | rocket_sentry           | orbital_ems_strike        |                          |                          |
+|                          | laser_cannon         |                       | ems_mortar_sentry       | orbital_smoke_strike      |                          |                          |
+
+
 ## Icons
 
 To get all icons for the stratagem actions, you can either:
@@ -53,13 +70,13 @@ To get all icons for the stratagem actions, you can either:
 
 ## Compiling (optional)
 
-If you want to compile the executables yourself, you need:
-
-- python 3.12.1
+### Requirements
+- Windows
+- Python 3.12
 - pipenv
+- Ability to run Makefiles on Windows (Recommend chocolatey to install make)
 
-Install the project's dependencies with ```pipenv install --dev```
-
-compile using ```pipenv run python compile.py```
+### Compiling
+Clone the repo locally and run ```make build```
 
 **Now go spread some democracy, soldier!**
