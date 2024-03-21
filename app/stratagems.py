@@ -66,7 +66,7 @@ class Stratagems:
     def toggle_menu(self):
         if self.config["settings"]["open_mode"] == "hold":
             (Key.up if self.menu_open else Key.down)(self.bindings["O"])
-        else:
+        elif not self.menu_open:
             Key.press(self.bindings["O"])
         self.menu_open = not self.menu_open
 
