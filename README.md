@@ -1,7 +1,7 @@
 ## Important Note
 
-For some reason, windows defender might falsy detect this as a Wacatac Trojan.
-Add the directory containing the files you downloaded, to remedy this issue, as defender might delete the files.
+For some reason, windows defender might falsy detect this as malicious code.
+Add the directory containing the files you downloaded to the exclusions, as defender might delete the files or block execution.
 
 If you don't feel comfortable with the provided binaries, you can take a look at the code and compile it yourself. (instructions on how to compile below)
 
