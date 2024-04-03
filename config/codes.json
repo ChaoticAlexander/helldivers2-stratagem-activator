@@ -18,6 +18,8 @@
   "grenade_launcher": "D L U L D",
   "laser_cannon": "D L D U L",
   "arc_thrower": "D R D U L L",
+  "heavy_machine_gun": "D L U D D",
+  "quasar_cannon": "D D U L R",
 
   "reinforce": "U D R L U",
   "sos_beacon": "U D R U",
@@ -25,7 +27,7 @@
   "hellbomb": "D U L D U R D U",
   "sssd_delivery": "D D D U U",
   "seismic_probe": "U U L R D D",
-  "upload_data": "D D U U U",
+  "upload_data": "L R U U U",
   "illumination_flare": "R R R L L L",
   "artillery": "R U U D",
   "prospecting_drill": "D D L R D D",
@@ -64,5 +66,11 @@
   "eagle_500kg_bomb": "U R D D D",
   "eagle_rearm": "U U L U R",
 
-  "patriot_exosuit": "L D R U L D D"
+  "patriot_exosuit": "L D R U L D D",
+
+  "up": "U",
+  "down": "D",
+  "left": "L",
+  "right": "R",
+  "open": "O"
 }
