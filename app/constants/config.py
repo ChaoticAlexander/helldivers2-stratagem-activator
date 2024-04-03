@@ -19,13 +19,13 @@ settings_description = {
     "left": "Left",
     "right": "Right",
     "open": "Open stratagem menu",
-    "open_mode": "Open mode (Hold/Toggle)",
+    "open_mode": "Open mode (Hold/Toggle/None)",
     "delay_min": "Minimum delay",
     "delay_max": "Maximum delay",
 }
 
 settings_prompts = {
-    "open_mode": "Do you want to use HOLD or TOGGLE mode for the stratagem open key? (h/t)",
+    "open_mode": "Do you want to use HOLD, TOGGLE or NONE mode for the stratagem open key? (h/t/n)",
     "delay_min": "Enter the minimum delay (ms)",
     "delay_max": "Enter the maximum delay (ms)",
     "open_mode_retry": "Invalid input. Please enter 'h' for HOLD or 't' for TOGGLE"

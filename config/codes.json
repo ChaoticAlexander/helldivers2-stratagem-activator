@@ -18,6 +18,8 @@
   "grenade_launcher": "D L U L D",
   "laser_cannon": "D L D U L",
   "arc_thrower": "D R D U L L",
+  "heavy_machine_gun": "D L U D D",
+  "quasar_cannon": "D D U L R",
 
   "reinforce": "U D R L U",
   "sos_beacon": "U D R U",
@@ -64,5 +66,11 @@
   "eagle_500kg_bomb": "U R D D D",
   "eagle_rearm": "U U L U R",
 
-  "patriot_exosuit": "L D R U L D D"
+  "patriot_exosuit": "L D R U L D D",
+
+  "up": "U",
+  "down": "D",
+  "left": "L",
+  "right": "R",
+  "open": "O"
 }

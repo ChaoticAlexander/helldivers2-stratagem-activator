@@ -14,6 +14,7 @@ class Stratagems:
     codes: Dict[str, str]
     active_code_sequence: List[str]
     menu_open: bool = False
+    no_menu_toggle: bool = False
     config: Config
 
     def __init__(self, stratagem_key: str, codes_file_path: str):
@@ -28,7 +29,7 @@ class Stratagems:
             for (key, config_key) in ActionMap.items()
         }
 
-    def load_key_sequences(self, file_path):
+    def load_key_sequences(self, file_path: str):
         try:
             log("Loading stratagem key sequences..")
             with open(file_path, encoding="utf-8") as f:
@@ -40,9 +41,14 @@ class Stratagems:
             showerror("Error", f"Error decoding JSON file: {file_path}")
             sys.exit(1)
 
-    def load_active_key_sequence(self, key):
+    def load_active_key_sequence(self, key: str):
         if key in self.codes:
-            self.active_code_sequence = self.codes[key].split(" ")
+            self.active_code_sequence = self.codes[key].replace("NM ", "").split(" ")
+            self.no_menu_toggle = (
+                self.config["settings"]["open_mode"] == "none"
+                or "NM" in self.codes[key]
+                or len(self.active_code_sequence) == 1
+            )
         else:
             showerror(
                 "Stratagem execution error", f'Key "{key}" not found in codes.json'
@@ -64,17 +70,19 @@ class Stratagems:
             time.sleep(delay)
 
     def toggle_menu(self):
+        if self.no_menu_toggle:
+            return
         if self.config["settings"]["open_mode"] == "hold":
             (Key.up if self.menu_open else Key.down)(self.bindings["O"])
         elif not self.menu_open:
             Key.press(self.bindings["O"])
         self.menu_open = not self.menu_open
+        time.sleep(0.02)
 
     def activate(self):
         log(f"Executing stratagem sequence: {self.active_code_sequence}")
         # Open stratagem menu
         self.toggle_menu()
-        time.sleep(0.02)
 
         # Send Key Sequence
         self.simulate_key_presses()

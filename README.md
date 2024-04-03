@@ -60,6 +60,25 @@ When using this script with something other than the loupedeck, make sure to omi
 |                          | spear_launcher       |                       | autocannon_sentry       | orbital_gas_strike        |                          |                          |
 |                          | grenade_launcher     |                       | rocket_sentry           | orbital_ems_strike        |                          |                          |
 |                          | laser_cannon         |                       | ems_mortar_sentry       | orbital_smoke_strike      |                          |                          |
+|                          | heavy_machine_gun    |                       |                         |                           |                          |                          |
+|                          | quasar_cannon        |                       |                         |                           |                          |                          |
+
+
+## Single key - No menu toggle
+
+You can use single key actions, as "up" or "down", if you want to assign arrow functions to your loupedeck.
+or you can define a key sequence that does not engage the menu open key.
+
+To define a single action, just add an entry to the codes.json with a single key (menu will be omitted automatically).
+For the sequence, you have to add the **NM** flag in the sequence.
+For example: 
+```json
+"up": "U",
+"down": "D"
+"custom_sequence": "NM U D R R L"
+```
+
+>You can disable the menu toggle action globally by using the **none** value for **open_mode** in config.ini
 
 
 ## Icons
