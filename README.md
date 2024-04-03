@@ -70,7 +70,7 @@ You can use single key actions, as "up" or "down", if you want to assign arrow f
 or you can define a key sequence that does not engage the menu open key.
 
 To define a single action, just add an entry to the codes.json with a single key (menu will be omitted automatically).
-For the sequence, you have to add the **NM** flag in the sequence.
+For the sequence, you have to add the **NM** (no menu) flag in the sequence.
 For example: 
 ```json
 "up": "U",
