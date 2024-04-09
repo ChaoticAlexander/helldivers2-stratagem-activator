@@ -10,7 +10,7 @@ default_settings: AppConfig = {
         "down": "80.1",
         "open": "29",
     },
-    "settings": {"open_mode": "hold", "delay_min": "20", "delay_max": "50", "press_time": "20"},
+    "settings": {"open_mode": "hold", "delay_min": "20", "delay_max": "50", "press_time": "40"},
 }
 
 settings_description = {
