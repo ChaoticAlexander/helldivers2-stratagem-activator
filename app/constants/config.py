@@ -10,7 +10,7 @@ default_settings: AppConfig = {
         "down": "80.1",
         "open": "29",
     },
-    "settings": {"open_mode": "hold", "delay_min": "20", "delay_max": "50"},
+    "settings": {"open_mode": "hold", "delay_min": "20", "delay_max": "50", "press_time": "20"},
 }
 
 settings_description = {
@@ -20,13 +20,15 @@ settings_description = {
     "right": "Right",
     "open": "Open stratagem menu",
     "open_mode": "Open mode (Hold/Toggle/None)",
-    "delay_min": "Minimum delay",
-    "delay_max": "Maximum delay",
+    "delay_min": "Minimum delay between key presses (ms)",
+    "delay_max": "Maximum delay between key presses (ms)",
+    "press_time": "Time to hold a key down for (ms)",
 }
 
 settings_prompts = {
     "open_mode": "Do you want to use HOLD, TOGGLE or NONE mode for the stratagem open key? (h/t/n)",
-    "delay_min": "Enter the minimum delay (ms)",
-    "delay_max": "Enter the maximum delay (ms)",
+    "delay_min": "Enter the minimum delay between key presses (ms)",
+    "delay_max": "Enter the maximum delay between key presses (ms)",
+    "press_time": "Enter the time to hold a key down for (ms)",
     "open_mode_retry": "Invalid input. Please enter 'h' for HOLD or 't' for TOGGLE"
 }

@@ -65,7 +65,7 @@ class Stratagems:
                 * 0.001,
                 4,
             )
-            Key.press(self.bindings[element])
+            Key.press(self.bindings[element], float(self.config["settings"]["press_time"]) * 0.001)
             log(f"sleeping for {delay}s")
             time.sleep(delay)
 
@@ -75,7 +75,7 @@ class Stratagems:
         if self.config["settings"]["open_mode"] == "hold":
             (Key.up if self.menu_open else Key.down)(self.bindings["O"])
         elif not self.menu_open:
-            Key.press(self.bindings["O"])
+            Key.press(self.bindings["O"], float(self.config["settings"]["press_time"]) * 0.001)
         self.menu_open = not self.menu_open
         time.sleep(0.02)
 
