@@ -1,7 +1,7 @@
 from typing import Literal, TypedDict
 
 AvailableKeys = Literal["up", "down", "left", "right", "open"]
-AvailableSettings = Literal["open_mode", "delay_min", "delay_max"]
+AvailableSettings = Literal["open_mode", "delay_min", "delay_max", "press_time"]
 AvailableOpenModes = Literal["hold", "toggle", "none"]
 OpenModeMap = {
     "h": "hold",
@@ -22,6 +22,7 @@ class Settings(TypedDict):
     open_mode: AvailableOpenModes
     delay_min: str
     delay_max: str
+    press_time: str
 
 
 class AppConfig(TypedDict):
