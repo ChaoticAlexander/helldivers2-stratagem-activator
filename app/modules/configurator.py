@@ -91,10 +91,9 @@ class Configurator:
     def read_value_and_assign(self, key: AvailableSettings, *args):
         """Reads and assigns a value from the user using input."""
         value = self.read_value(key, *args)
+        value = OpenModeMap[value[0]] if key == "open_mode" else value
         print(f"Assigning {value} to {key}")
-        self.config["settings"][key] = (
-            OpenModeMap[value] if key == "open_mode" else value
-        )
+        self.config["settings"][key] = value
         print()
 
     def get_default_value(self, key: AvailableSettings):
