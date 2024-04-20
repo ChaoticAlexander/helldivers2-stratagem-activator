@@ -51,7 +51,7 @@ class Configurator:
     def assign_key(self, key: str, event):
         """Assigns given key to a keybinding."""
         is_arrow_key = event.name in get_args(AvailableKeys)
-        is_extended = (event.is_keypad ^ is_arrow_key) or "right " in event.name
+        is_extended = (event.is_keypad ^ is_arrow_key) or "right " or "home" in event.name
         key_code = f"{event.scan_code}.1" if is_extended else event.scan_code
         print(
             "Assigning",
