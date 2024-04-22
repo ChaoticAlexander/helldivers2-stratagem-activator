@@ -1,24 +1,37 @@
 import sys
-
+import os
+import fasteners
 from app.stratagems import Stratagems
 from app.utils import log, showerror
 
 
 def main():
-    if len(sys.argv) < 2:
-        showerror(
-            "Stratagem key missing",
-            "Please provide the stratagem key you want to activate.",
-        )
-        sys.exit(1)
+    lockfile_path = os.path.join(
+        os.path.abspath(os.path.dirname(__file__)), "stratagems.lock"
+    )
 
-    key = sys.argv[1]
+    # Attempt to acquire the lock
+    lock = fasteners.InterProcessLock(lockfile_path)
+    if not lock.acquire(blocking=False):
+        sys.exit(0)
 
-    stratagems = Stratagems(key, "codes.json")
+    try:
+        if len(sys.argv) < 2:
+            showerror(
+                "Stratagem key missing",
+                "Please provide the stratagem key you want to activate.",
+            )
+            sys.exit(1)
 
-    log(f"Activating stratagem with key: {key}")
+        key = sys.argv[1]
 
-    stratagems.activate()
+        stratagems = Stratagems(key, "codes.json")
+
+        log(f"Activating stratagem with key: {key}")
+
+        stratagems.activate()
+    finally:
+        lock.release()
 
 
 if __name__ == "__main__":
