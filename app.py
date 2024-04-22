@@ -1,6 +1,8 @@
-import sys
 import os
+import sys
+
 import fasteners
+
 from app.stratagems import Stratagems
 from app.utils import log, showerror
 

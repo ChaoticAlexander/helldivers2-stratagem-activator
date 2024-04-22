@@ -1,7 +1,9 @@
-import keyboard
-import colorama
 import shutil
+
+import colorama
+import keyboard
 from colorama import Fore, Style
+
 from app.utils.config import filter_event
 
 

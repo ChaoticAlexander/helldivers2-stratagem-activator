@@ -2,11 +2,8 @@ from typing import Union, get_args
 
 import keyboard
 
-from app.constants.config import (
-    default_settings,
-    settings_description,
-    settings_prompts,
-)
+from app.constants.config import (default_settings, settings_description,
+                                  settings_prompts)
 from app.types.config import AvailableKeys, AvailableSettings, OpenModeMap
 from app.utils.config import filter_event
 

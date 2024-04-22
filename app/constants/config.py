@@ -13,7 +13,12 @@ default_settings: AppConfig = {
         "down": "80.1",
         "open": "29",
     },
-    "settings": {"open_mode": "hold", "delay_min": "20", "delay_max": "50", "press_time": "40"},
+    "settings": {
+        "open_mode": "hold",
+        "delay_min": "20",
+        "delay_max": "50",
+        "press_time": "40",
+    },
 }
 
 settings_description = {
@@ -33,5 +38,5 @@ settings_prompts = {
     "delay_min": "Enter the minimum delay between key presses (ms)",
     "delay_max": "Enter the maximum delay between key presses (ms)",
     "press_time": "Enter the time to hold a key down for (ms)",
-    "open_mode_retry": "Invalid input. Please enter 'h' for HOLD or 't' for TOGGLE"
+    "open_mode_retry": "Invalid input. Please enter 'h' for HOLD or 't' for TOGGLE",
 }

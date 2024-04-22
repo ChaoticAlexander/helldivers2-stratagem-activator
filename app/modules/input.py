@@ -1,14 +1,11 @@
 import ctypes
-from ctypes import wintypes
 import time
-from app.types.input import KeyBdInput, Input, Input_I
-from app.constants.input import (
-    KEYEVENTF_EXTENDEDKEY,
-    KEYEVENTF_KEYDOWN,
-    KEYEVENTF_KEYUP,
-    KEYEVENTF_SCANCODE,
-    INPUT_KEYBOARD,
-)
+from ctypes import wintypes
+
+from app.constants.input import (INPUT_KEYBOARD, KEYEVENTF_EXTENDEDKEY,
+                                 KEYEVENTF_KEYDOWN, KEYEVENTF_KEYUP,
+                                 KEYEVENTF_SCANCODE)
+from app.types.input import Input, Input_I, KeyBdInput
 from app.utils.logger import log
 
 user32 = ctypes.windll.user32

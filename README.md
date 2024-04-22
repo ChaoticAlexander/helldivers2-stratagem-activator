@@ -71,7 +71,9 @@ or you can define a key sequence that does not engage the menu open key.
 
 To define a single action, just add an entry to the codes.json with a single key (menu will be omitted automatically).
 For the sequence, you have to add the **NM** (no menu) flag in the sequence.
-For example: 
+
+
+For example:
 ```json
 "up": "U",
 "down": "D"
