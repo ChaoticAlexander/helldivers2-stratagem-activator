@@ -2,6 +2,9 @@ from app.types.config import AppConfig
 
 config_file_path = "config.ini"
 
+arrow_keys = ["up", "down", "left", "right"]
+function_keys = ["insert", "delete", "home", "end", "page up", "page down"]
+
 default_settings: AppConfig = {
     "keybindings": {
         "left": "75.1",

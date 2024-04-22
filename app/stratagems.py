@@ -55,19 +55,24 @@ class Stratagems:
             )
             sys.exit(1)
 
+    def sleep(self):
+        delay = (
+            random.uniform(
+                int(self.config["settings"]["delay_min"]),
+                int(self.config["settings"]["delay_max"]),
+            )
+            * 0.001
+        )
+        log(f"sleeping for {delay}s")
+        return time.sleep(delay)
+
     def simulate_key_presses(self):
         for element in self.active_code_sequence:
-            delay = round(
-                random.uniform(
-                    int(self.config["settings"]["delay_min"]),
-                    int(self.config["settings"]["delay_max"]),
-                )
-                * 0.001,
-                4,
+            Key.press(
+                self.bindings[element],
+                float(self.config["settings"]["press_time"]) * 0.001,
             )
-            Key.press(self.bindings[element], float(self.config["settings"]["press_time"]) * 0.001)
-            log(f"sleeping for {delay}s")
-            time.sleep(delay)
+            self.sleep()
 
     def toggle_menu(self):
         if self.no_menu_toggle:
@@ -75,9 +80,11 @@ class Stratagems:
         if self.config["settings"]["open_mode"] == "hold":
             (Key.up if self.menu_open else Key.down)(self.bindings["O"])
         elif not self.menu_open:
-            Key.press(self.bindings["O"], float(self.config["settings"]["press_time"]) * 0.001)
+            Key.press(
+                self.bindings["O"], float(self.config["settings"]["press_time"]) * 0.001
+            )
         self.menu_open = not self.menu_open
-        time.sleep(0.02)
+        self.sleep()
 
     def activate(self):
         log(f"Executing stratagem sequence: {self.active_code_sequence}")

@@ -1,14 +1,18 @@
 import ctypes
+from ctypes import wintypes
 import time
-from app.types.input import Input, Input_I, KeyBdInput
+from app.types.input import KeyBdInput, Input, Input_I
+from app.constants.input import (
+    KEYEVENTF_EXTENDEDKEY,
+    KEYEVENTF_KEYDOWN,
+    KEYEVENTF_KEYUP,
+    KEYEVENTF_SCANCODE,
+    INPUT_KEYBOARD,
+)
 from app.utils.logger import log
 
-SendInput = ctypes.windll.user32.SendInput
-
-# Constants
-KEYEVENTF_KEYDOWN = 0x0008
-KEYEVENTF_KEYUP = KEYEVENTF_KEYDOWN | 0x0002
-KEYEVENTF_EXTENDEDKEY = 0x0001
+user32 = ctypes.windll.user32
+SendInput = user32.SendInput
 
 
 class Key:
@@ -16,23 +20,28 @@ class Key:
     def simulate(key_code, key_down=True):
         """Simulate pressing or releasing a key."""
         key_code, _, ext = key_code.partition(".")
-        extra = ctypes.c_ulong(0)
-        ii_ = Input_I()
-        flags = KEYEVENTF_KEYDOWN if key_down else KEYEVENTF_KEYUP
+        state = KEYEVENTF_KEYDOWN if key_down else KEYEVENTF_KEYUP
+        flags = KEYEVENTF_SCANCODE | state
         if ext:
             flags |= KEYEVENTF_EXTENDEDKEY
-        ii_.ki = KeyBdInput(0, int(key_code), flags, 0, ctypes.pointer(extra))
-        x = Input(ctypes.c_ulong(1), ii_)
+        input_struct = Input(
+            INPUT_KEYBOARD,
+            ii=Input_I(
+                ki=KeyBdInput(
+                    0, int(key_code), flags, 0, ctypes.pointer(wintypes.WPARAM(0))
+                )
+            ),
+        )
         if key_down:
             log(f"Simulating key with code: {key_code}, extended: {bool(ext)}")
-        SendInput(1, ctypes.pointer(x), ctypes.sizeof(x))
+        SendInput(1, ctypes.pointer(input_struct), ctypes.sizeof(input_struct))
 
     @staticmethod
     def press(key_code, delay=0.02):
         """Simulate pressing a key with an optional delay before releasing."""
-        Key.simulate(key_code, key_down=True)
+        Key.down(key_code)
         time.sleep(delay)
-        Key.simulate(key_code, key_down=False)
+        Key.up(key_code)
 
     @staticmethod
     def down(key_code):
