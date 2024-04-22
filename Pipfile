@@ -6,6 +6,7 @@ verify_ssl = true
 [packages]
 keyboard = ">=0.13.5"
 python-dotenv = "*"
+fasteners = "*"
 
 [dev-packages]
 pyinstaller = ">=6.5.0"
@@ -15,6 +16,8 @@ flake8 = "*"
 pylint = "*"
 isort = "*"
 pre-commit = "*"
+colorama = "*"
+types-colorama = "*"
 
 [requires]
 python_version = "3.12"

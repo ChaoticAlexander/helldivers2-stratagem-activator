@@ -3,11 +3,7 @@ from typing import Literal, TypedDict
 AvailableKeys = Literal["up", "down", "left", "right", "open"]
 AvailableSettings = Literal["open_mode", "delay_min", "delay_max", "press_time"]
 AvailableOpenModes = Literal["hold", "toggle", "none"]
-OpenModeMap = {
-    "h": "hold",
-    "t": "toggle",
-    "n": "none"
-}
+OpenModeMap = {"h": "hold", "t": "toggle", "n": "none"}
 
 
 class Keybindings(TypedDict):

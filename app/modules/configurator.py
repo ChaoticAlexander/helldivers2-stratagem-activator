@@ -2,12 +2,10 @@ from typing import Union, get_args
 
 import keyboard
 
-from app.constants.config import (
-    default_settings,
-    settings_description,
-    settings_prompts,
-)
+from app.constants.config import (default_settings, settings_description,
+                                  settings_prompts)
 from app.types.config import AvailableKeys, AvailableSettings, OpenModeMap
+from app.utils.config import filter_event
 
 from .config import Config
 
@@ -50,14 +48,15 @@ class Configurator:
 
     def assign_key(self, key: str, event):
         """Assigns given key to a keybinding."""
-        is_arrow_key = event.name in get_args(AvailableKeys)
-        is_extended = (event.is_keypad ^ is_arrow_key) or "right " in event.name
-        key_code = f"{event.scan_code}.1" if is_extended else event.scan_code
+        event_info = filter_event(event)
+        key_code = (
+            f"{event.scan_code}.1" if event_info["is_extended"] else event.scan_code
+        )
         print(
             "Assigning",
             "Numpad" if event.is_keypad else "",
             event.name,
-            f"{' Arrow' if is_arrow_key else ''} to {key}: {key_code}",
+            f"{' Arrow' if event_info['is_arrow_key'] else ''} to {key}: {key_code}",
         )
         self.config["keybindings"][key] = key_code
 
